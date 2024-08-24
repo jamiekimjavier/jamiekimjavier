@@ -685,6 +685,9 @@ p, h2, h3 {
   opacity: 1;
 }
 
+.card a {
+  color:white;
+}
 
 .sidenav {
   width: 95px;
