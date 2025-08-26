@@ -37,6 +37,10 @@ h3 {
   font-size: 1.5rem;
 }
 
+h4 {
+    font-size: 1.2rem;
+}
+
 p {
   color: #94a3b8; /* Medium Slate Gray for paragraphs */
   max-width: 65ch; /* Improves readability */
@@ -206,6 +210,51 @@ p {
     color: #94a3b8;
     margin-bottom: 0.5rem;
 }
+
+/* --- Certificates Section --- */
+.certificates-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.certificate-card {
+    background: #1e293b;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.certificate-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.certificate-info {
+    padding: 1.5rem;
+}
+
+.certificate-title {
+    margin-bottom: 0.5rem;
+    color: #f8fafc;
+}
+
+.certificate-issuer {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
 
 /* --- Projects Section --- */
 .projects-container {
