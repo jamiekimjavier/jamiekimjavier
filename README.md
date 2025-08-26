@@ -4,8 +4,6 @@
   <img src="https://komarev.com/ghpvc/?username=jamiekimjavier&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views" />
 </p>
 
-# 👋 Hi, I'm Jamie!
-
 I'm a passionate developer currently learning **Python, Cybersecurity, Game Development, and Android App Development**. I love exploring new technologies and building projects that challenge my skills.
 
 ## 🌱 Current Learning Goals
