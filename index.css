@@ -33,6 +33,10 @@ h2 {
   display: inline-block;
 }
 
+h3 {
+  font-size: 1.5rem;
+}
+
 p {
   color: #94a3b8; /* Medium Slate Gray for paragraphs */
   max-width: 65ch; /* Improves readability */
@@ -151,6 +155,56 @@ p {
   background-color: transparent;
   color: #22d3ee;
   border-color: #22d3ee;
+}
+
+/* --- Timeline Section --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: #1e293b; /* Slightly lighter dark slate */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -6px; /* Adjust to center on the line */
+    top: 5px;
+    height: 14px;
+    width: 14px;
+    background: #22d3ee;
+    border-radius: 50%;
+    border: 2px solid #0f172a;
+    box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+}
+
+.timeline-content {
+    padding-left: 2rem;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
 }
 
 /* --- Projects Section --- */
@@ -341,5 +395,17 @@ p {
   .profile {
     width: 180px;
     height: 180px;
+  }
+
+  .timeline {
+    padding-left: 1rem;
+  }
+
+  .timeline::before {
+    left: -10px;
+  }
+
+  .timeline-dot {
+    left: -16px;
   }
 }
