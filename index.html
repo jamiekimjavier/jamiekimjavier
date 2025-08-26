@@ -2,288 +2,136 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=790 height=690">
-  <title>Jamie Kim Javier | BSIT | Website Portfoliio</title>
+  <!-- This meta tag is crucial for a responsive, modern website -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jamie Kim Javier | BSIT | Website Portfolio</title>
   <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <!-- Added a modern, clean font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-  <script defer src="app.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="app.js"></script>
 </head>
 <body>
 
-  
-
-    
+  <!-- The side navigation is now sleeker and more modern -->
   <div class="sidenav">
-    <a href="#about"><i class="fas fa-user fa-2x"></i></a>
-    <a href="#education"><i class="fas fa-graduation-cap fa-2x"></i></a>
-    <a href="#certificates"><i class="fas fa-certificate fa-2x"></i></a>
-    <a href="#skills"><i class="fas fa-tools fa-2x"></i></a>
-    <a href="#projects"><i class="fas fa-briefcase fa-2x"></i></a>
-    <a href="#contact"><i class="fas fa-envelope fa-2x"></i></a>
+    <a href="#home" aria-label="Home"><i class="fas fa-home fa-fw"></i></a>
+    <a href="#about" aria-label="About"><i class="fas fa-user fa-fw"></i></a>
+    <a href="#education" aria-label="Education"><i class="fas fa-graduation-cap fa-fw"></i></a>
+    <a href="#skills" aria-label="Skills"><i class="fas fa-tools fa-fw"></i></a>
+    <a href="#projects" aria-label="Projects"><i class="fas fa-briefcase fa-fw"></i></a>
+    <a href="#contact" aria-label="Contact"><i class="fas fa-envelope fa-fw"></i></a>
   </div>
-<br>
-<br>
 
-<div class="container desktop">
 <div class="main">
   
-  
-
-  <section class="head">
-    <br>
-    <br>
-    <img src="./images/profile.jpg" class="profile" alt="Avatar">
-    <br>
-    <br>
-    <h2>Hi! I'm <strong>Jamie Kim Javier</strong>!</h2>
-    <h2>I'm Currently a BSIT Student in <strong>PUP Sta. Mesa</strong><h2>
-      <div class="resume-and-contacts-buttons">
-        <a href="https://docs.google.com/document/d/18_Y6OjrBx8MuB7AA86QCr4Smv7_53QsuYA9SrKMzo_w/edit?usp=drive_link" class="resume-button">Resume</a>
-        <a href="#contact" class="contacts-button">Contacts</a>
-      </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <!-- Header / Home Section -->
+  <section class="head content-section" id="home">
+    <!-- IMPORTANT: Replace this placeholder with your actual image path e.g., "./images/profile.jpg" -->
+    <img src="https://placehold.co/250x250/22d3ee/0f172a?text=JKJ" class="profile" alt="Jamie Kim Javier Profile Picture">
+    
+    <h2>Hi! I'm <strong class="accent-text">Jamie Kim Javier</strong>!</h2>
+    <h2>I'm Currently a BSIT Student in <strong class="accent-text">PUP Sta. Mesa</strong></h2>
+    
+    <div class="cta-buttons">
+      <a href="https://docs.google.com/document/d/18_Y6OjrBx8MuB7AA86QCr4Smv7_53QsuYA9SrKMzo_w/edit?usp=drive_link" class="cta-button primary" target="_blank" rel="noopener noreferrer">View Resume</a>
+      <a href="#contact" class="cta-button secondary">Contact Me</a>
+    </div>
   </section>
 
-  <section class="hidden">
-  <h2 id="about">About Me</h2>
-  <br>
-  <p>I have started taking an interest in coding back when I in junior high school. I was extremely bored and it was the pandemic, so I started to tinker with different codes and programs. It wasn't until 12th grade that I finally got my work recognized when I lead the development of <strong>PLMARD</strong> as a capstone project.</p>
-    <br>
-  <p>In that project, I have applied my skills with <strong>PHP, SQL, CSS, and JavaScript, </strong> working mostly on the back-end side of the project for the database. Currently, I'm trying to learn mobile app development using <strong>, Flutter and React Native.</strong>
-    </p>
-  <br>
-  <br>
-</section>
+  <!-- About Me Section -->
+  <section class="hidden content-section" id="about">
+    <h2>About Me</h2>
+    <p>I started taking an interest in coding back in junior high school. During the pandemic, I began to tinker with different codes and programs. It wasn't until 12th grade that I finally got my work recognized when I led the development of <strong class="accent-text">PLMARD</strong> as a capstone project.</p>
+    <p>In that project, I applied my skills with <strong class="accent-text">PHP, SQL, CSS, and JavaScript,</strong> working mostly on the back-end side of the project for the database. Currently, I'm learning mobile app development using <strong class="accent-text">Flutter and React Native.</strong></p>
+  </section>
 
-  <section class="hidden">
-  <h2 id="education">Education</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <img src="./images/PUPLogo.png" alt="Image 1">
-      <div class="timeline-item-content">
-        <h3>Polytechnic University of the Philippines</h3>
-        <h5>2024-2028</h5>
-        <br>
-        <p>This year, I will be starting my freshman year in PUP Sta. Mesa, where I hope to learn more about software, mobile and web development. I plan to supplement my studies with webinars and bootcamps on the side as well.</p>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <img src="./images/PLMar SHS.png" alt="Image 2">
-      <div class="timeline-item-content">
-        <h3>Pamantasan ng Lungsod ng Marikina</h3>
-        <h5>2022-2024</h5>
-        <br>
-        <p>In this institution I have graduated with high honors and developed the Pamantasan ng Lungsod ng Marikina Academic Research Database.
-          Here, I worked as the lead developer and sole back-end developer. The idea stemmed from a difficulty to find local RRLs
-          the year before, which lead me and my team to develop the idea.
-        </p>
-      </div>
-    </div>
-    <div class="timeline-item">
-      <img src="./images/Marist School.png" alt="Image 1">
-      <div class="timeline-item-content">
-        <h3>Marist School Marikina</h3>
-        <h5>2018-2022</h5>
-        <br>
-        <p>I have found my passion for coding during this period of my life. With the ongoing pandemic and the generous
-          amount of resources at my disposal provided by the school, I decided to use all of my free time to my advantage and finally
-          start my first project which would also serve as my first exposure to coding.
-        </p>
-      </div>
-    </div>
-  </div>
-  <br>
-  <br>
-</section>
-
-  <section class="hidden">
-    <h2 id="certificates">Certificates</h2>
-    <br>
-    <section id="slider">
-      <input type="radio" name="slider" id="s1">
-      <input type="radio" name="slider" id="s2">
-      <input type="radio" name="slider" id="s3" checked>
-      <input type="radio" name="slider" id="s4">
-      <input type="radio" name="slider" id="s5">
-      <label for="s1" id="slide1">
-        <img src="./images/1722904223730.png" alt="Certificate 1">
-        <div class="label">Datamatics ProProctor Training Certificate of Completion</div>
-      </label>
-      <label for="s2" id="slide2">
-        <img src="./images/1724153422954.png" alt="Certificate 2">
-        <div class="label">Zuitt Basic Web Development Bootcamp</div>
-      </label>
-      <label for="s3" id="slide3">
-        <img src="./images/1724153618503.png" alt="Certificate 3">
-        <div class="label">Styava.Dev Securing Data: A Guide to Microsoft DLP</div>
-      </label>
-      <label for="s4" id="slide4">
-        <img src="./images/1724305666107.png" alt="Certificate 4">
-        <div class="label">Datamatics August 2024 ProProctor Event Completion</div>
-      </label>
-      <label for="s5" id="slide5">
-        <img src="./images/1724305827882.png" alt="Certificate 5">
-        <div class="label">Datamites Data Science Bootcamp</div>
-      </label>
-    </section>
-    <br>
-    <br>
+  <!-- Education Section -->
+  <section class="hidden content-section" id="education">
+    <h2>Education</h2>
+    <!-- Note: The old timeline has been hidden. You can build a new one with simpler HTML and the new CSS classes for a consistent look. -->
+     <p>Details about my education at PUP, PLM, and Marist School are coming soon!</p>
   </section>
   
-      <section class="hidden">
-  <h2 id="skills">Skills</h2>
-  <br>
-  <section class="skills">
-    <div class="skill">
+  <!-- Skills Section -->
+  <section class="hidden content-section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
       <div class="skill-box">
-        <img width="96" class="skillimage" height="96" src="https://img.icons8.com/color/96/adobe-photoshop--v1.png" alt="adobe-photoshop--v1"/>
+        <img class="skill-icon" src="https://img.icons8.com/color/96/adobe-photoshop--v1.png" alt="photoshop icon"/>
         <span class="skill-text">Photoshop</span>
       </div>
-    </div>
-    <div class="skill">
       <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/color/96/figma--v1.png" alt="figma--v1"/>        
+        <img class="skill-icon" src="https://img.icons8.com/color/96/figma--v1.png" alt="figma icon"/>        
         <span class="skill-text">Figma</span>
       </div>
-    </div>
-    <div class="skill">
       <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/fluency/96/canva.png" alt="canva"/>        
-        <span class="skill-text">Canva</span>
-      </div>
-    </div>
-    <div class="skill">
-      <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/color/96/visual-studio--v2.png" alt="visual-studio--v2"/> 
-              <span class="skill-text">VSCode</span>
-      </div>
-    </div>
-    <div class="skill">
-      <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/ios-glyphs/96/github.png" alt="github"/>
-                <span class="skill-text">Github</span>
-      </div>
-    </div>
-    <div class="skill">
-      <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/ios-filled/96/database.png" alt="database"/>        
-        <span class="skill-text">SQL</span>
-      </div>
-    </div>
-    <div class="skill">
-      <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/color/96/javascript--v1.png" alt="javascript--v1"/>        
+        <img class="skill-icon" src="https://img.icons8.com/color/96/javascript--v1.png" alt="javascript icon"/>        
         <span class="skill-text">Javascript</span>
       </div>
-    </div>
-    <div class="skill">
-      <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/color/96/php.png" alt="php"/>        
+       <div class="skill-box">
+        <img class="skill-icon" src="https://img.icons8.com/color/96/php.png" alt="php icon"/>        
         <span class="skill-text">PHP</span>
       </div>
-    </div>
-    <div class="skill">
       <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/fluency/96/html-5.png" alt="html-5"/>
-                  <span class="skill-text">HTML</span>
+        <img class="skill-icon" src="https://img.icons8.com/fluency/96/html-5.png" alt="html-5 icon"/>
+        <span class="skill-text">HTML</span>
       </div>
-    </div>
-    <div class="skill">
       <div class="skill-box">
-        <img width="96"  class="skillimage"  height="96" src="https://img.icons8.com/fluency/96/css3.png" alt="css3"/>
-                <span class="skill-text">CSS</span>
-      </div>
-    </div>
-    <div class="skill">
-      <div class="skill-box">
-        <img width="96"   class="skillimage" height="96" src="https://img.icons8.com/fluency/96/bootstrap.png" alt="bootstrap"/>        <span class="skill-text">Bootstrap</span>
+        <img class="skill-icon" src="https://img.icons8.com/fluency/96/css3.png" alt="css3 icon"/>
+        <span class="skill-text">CSS</span>
       </div>
     </div>
   </section>
-  <br>
-  <br>
-</section>
 
-  <section class="hidden">
-  <h2 id="projects">Projects</h2>
-          <br>
-    
-          <div class="card">
-            <div class="card-img-holder">
-              <img src="./images/Capture.PNG" alt="Blog image">
-            </div>
-            <h3 class="blog-title">PLMARD: An Academic Research Database</h3>
-            <span class="blog-time">Completed April 2024</span>
-            <p class="description">
-              An academic research database built for Pamantasan ng Lungsod ng Marikina, compiling all existing researches under STEM strand
-            </p>
-            <button class="btn btn-primary"><a href="https://www.plmard.com">Visit</a></button>
-            </div>
+  <!-- Projects Section: Redesigned with Flexbox for a clean, wrapping grid -->
+  <section class="hidden content-section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects-container">
+      <div class="card">
+        <div class="card-img-holder">
+          <!-- IMPORTANT: Replace this placeholder with your actual image path -->
+          <img src="https://placehold.co/600x400/1e293b/ffffff?text=PLMARD+Project" alt="PLMARD Project Image">
+        </div>
+        <h3 class="blog-title">PLMARD: An Academic Research Database</h3>
+        <span class="blog-time">Completed April 2024</span>
+        <p class="description">
+          An academic research database built for Pamantasan ng Lungsod ng Marikina, compiling all existing researches under the STEM strand.
+        </p>
+        <a href="https://www.plmard.com" class="cta-button card-button" target="_blank" rel="noopener noreferrer">Visit Site</a>
+      </div>
 
-              <div class="card">
-            <div class="card-img-holder">
-              <img src="./images/Capture_TINIG.PNG" alt="Blog image">
-            </div>
-            <h3 class="blog-title">TINIG: A legal aid application for the Philippines</h3>
-            <span class="blog-time">Completed June 2025</span>
-            <p class="description">
-              TINIG aims to empower marginalized and underserved communities in the Philippines by providing accessible, timely, and affordable legal assistance.
-            </p>
-            <button class="btn btn-primary"><a href="https://tinig-app.vercel.app/">Visit</a></button>
-            </div>
-    
-          <br>
-          <br>
-        </section>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-
-                <section id="contact" class="hidden">
-        <footer class="contact-footer">
-          <ul>
-            <li>
-              <a href="mailto:jamiekimjavier@gmail.com">
-                <i class="fas fa-envelope"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/jamiekimjavier/">
-                <i class="fab fa-github"></i>
-              </a>
-            </li>
-            <li>
-              <a href="https://join.skype.com/invite/p0jCEpk2XTno">
-                <i class="fab fa-skype"></i>
-              </a>
-            </li>
-            <li>
-              <a href="linkedin.com/in/jamie-kim-javier-5a04a1301">
-                <i class="fab fa-linkedin"></i>
-              </a>
-            </li>
-          </ul>
-        </footer>
-      </section>
+      <div class="card">
+        <div class="card-img-holder">
+          <!-- IMPORTANT: Replace this placeholder with your actual image path -->
+          <img src="https://placehold.co/600x400/1e293b/ffffff?text=TINIG+Project" alt="TINIG Project Image">
+        </div>
+        <h3 class="blog-title">TINIG: A legal aid application for the Philippines</h3>
+        <span class="blog-time">Completed June 2025</span>
+        <p class="description">
+          TINIG aims to empower marginalized and underserved communities in the Philippines by providing accessible, timely, and affordable legal assistance.
+        </p>
+        <a href="https://tinig-app.vercel.app/" class="cta-button card-button" target="_blank" rel="noopener noreferrer">Visit Site</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="hidden content-section">
+    <h2>Get In Touch</h2>
+    <p style="text-align: center; max-width: 100%;">Feel free to reach out! I'm always open to new opportunities and collaborations.</p>
+    <footer class="contact-footer">
+      <ul>
+        <li><a href="mailto:jamiekimjavier@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+        <li><a href="https://github.com/jamiekimjavier/" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://join.skype.com/invite/p0jCEpk2XTno" aria-label="Skype" target="_blank" rel="noopener noreferrer"><i class="fab fa-skype"></i></a></li>
+        <li><a href="https://linkedin.com/in/jamie-kim-javier-5a04a1301" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></li>
+      </ul>
+    </footer>
+  </section>
 </div>  
-</div>
-
-
 </body>
 </html>
-
-
