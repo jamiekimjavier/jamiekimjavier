@@ -2,20 +2,484 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <!-- This meta tag is crucial for a responsive, modern website -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jamie Kim Javier | BSIT | Website Portfolio</title>
-  <link rel="stylesheet" href="index.css">
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <!-- Added a modern, clean font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f172a; 
+      color: #e2e8f0; 
+      line-height: 1.6;
+      overflow-x: hidden; 
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: #f8fafc;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      border-bottom: 3px solid #22d3ee; 
+      padding-bottom: 1rem;
+      margin-top: 2rem;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    h4 {
+        font-size: 1.2rem;
+    }
+
+    p {
+      color: #94a3b8;
+      max-width: 65ch; 
+    }
+
+    .accent-text {
+      color: #22d3ee;
+      font-weight: 600;
+    }
+
+    .main {
+      margin-left: 90px; 
+      padding: 2rem 4rem;
+      max-width: 1200px;
+    }
+    
+
+    .main > section {
+      min-height: 100vh;
+      scroll-snap-align: start; 
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .head {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .sidenav {
+      width: 80px;
+      position: fixed;
+      z-index: 1000;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      background: rgba(30, 41, 59, 0.6); 
+      backdrop-filter: blur(10px); 
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .sidenav a {
+      padding: 1rem;
+      color: #94a3b8;
+      display: block;
+      font-size: 1.5rem;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      width: 100%;
+      text-align: center;
+    }
+
+    .sidenav a:hover {
+      color: #f8fafc;
+      background-color: rgba(34, 211, 238, 0.1);
+    }
+    
+    .sidenav a.active {
+        color: #22d3ee;
+        background-color: rgba(34, 211, 238, 0.15);
+    }
+
+    .profile {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #22d3ee;
+      box-shadow: 0 0 25px rgba(34, 211, 238, 0.4), 0 0 50px rgba(34, 211, 238, 0.2);
+      margin-bottom: 2rem;
+    }
+
+    .head h2 {
+      border: none;
+      font-size: 1.75rem;
+      font-weight: 400;
+      padding: 0;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button.primary {
+      background-color: #22d3ee;
+      color: #0f172a;
+    }
+
+    .cta-button.secondary {
+      background-color: transparent;
+      color: #22d3ee;
+      border-color: #22d3ee;
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 2rem auto;
+        padding-left: 2rem;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        background: #1e293b;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: -6px;
+        top: 5px;
+        height: 14px;
+        width: 14px;
+        background: #22d3ee;
+        border-radius: 50%;
+        border: 2px solid #0f172a;
+        box-shadow: 0 0 10px rgba(34, 211, 238, 0.5);
+    }
+
+    .timeline-content {
+        padding-left: 2rem;
+    }
+
+    .timeline-date {
+        display: block;
+        font-size: 0.9rem;
+        color: #94a3b8;
+        margin-bottom: 0.5rem;
+    }
+
+    .certificates-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .certificate-card {
+        background: #1e293b;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+        max-width: 350px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .certificate-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .certificate-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .certificate-info {
+        padding: 1.5rem;
+    }
+
+    .certificate-title {
+        margin-bottom: 0.5rem;
+        color: #f8fafc;
+    }
+
+    .certificate-issuer {
+        color: #94a3b8;
+        font-size: 0.9rem;
+    }
+
+
+  
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap; 
+      justify-content: center; 
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #1e293b; 
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden; 
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-img-holder {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-img-holder img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .blog-title {
+      font-size: 1.5rem;
+      color: #f8fafc;
+    }
+
+    .blog-time {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    .description {
+      font-size: 1rem;
+      color: #94a3b8;
+      flex-grow: 1; 
+      margin-bottom: 1.5rem;
+    }
+
+    .card-button {
+      margin-top: auto;
+      text-align: center;
+    }
+
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .skill-box {
+      background-color: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      width: 140px;
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    .skill-text {
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+      color: #e2e8f0;
+    }
+
+
+    .contact-footer {
+      text-align: center;
+      padding: 2rem 0;
+    }
+
+    .contact-footer ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .contact-footer i {
+      font-size: 2.5rem;
+      color: #94a3b8;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-footer a:hover i {
+      color: #22d3ee;
+      transform: scale(1.2);
+    }
+
+ 
+    .hidden {
+      opacity: 0;
+      filter: blur(5px);
+      transform: translateX(-50px);
+    
+      transition: all 0.5s ease-out;
+    }
+
+
+    .show {
+      opacity: 1;
+      filter: blur(0);
+      transform: translateX(0);
+    }
+
+    @media (max-width: 768px) {
+      html {
+        font-size: 14px;
+     
+        scroll-snap-type: none;
+      }
+      
+      .main > section {
+          min-height: auto;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 1rem 1.5rem;
+      }
+
+      .sidenav {
+        width: 100%;
+        height: 65px;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        transform: none;
+        flex-direction: row;
+        justify-content: space-around;
+        border-radius: 12px 12px 0 0;
+        padding: 0;
+        border-width: 1px 0 0 0;
+      }
+
+      .sidenav a {
+        padding: 0.5rem;
+        font-size: 1.4rem;
+      }
+      
+      .head {
+          padding-bottom: 80px; 
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .profile {
+        width: 180px;
+        height: 180px;
+      }
+
+      .timeline {
+        padding-left: 1rem;
+      }
+
+      .timeline::before {
+        left: -10px;
+      }
+
+      .timeline-dot {
+        left: -16px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- The side navigation is now sleeker and more modern -->
   <div class="sidenav">
     <a href="#home" aria-label="Home"><i class="fas fa-home fa-fw"></i></a>
     <a href="#about" aria-label="About"><i class="fas fa-user fa-fw"></i></a>
@@ -29,14 +493,14 @@
 <div class="main">
   
   <!-- Header / Home Section -->
-  <section class="head content-section" id="home">
-    <!-- IMPORTANT: Replace this placeholder with your actual image path e.g., "./images/profile.jpg" -->
-    <img src="images/profile.jpg" class="profile" alt="Jamie Kim Javier Profile Picture">
+  <section class="head" id="home">
+  
+    <img src="images/profile.jpg" class="profile hidden" alt="Jamie Kim Javier Profile Picture">
     
-    <h2>Hi! I'm <strong class="accent-text">Jamie Kim Javier</strong>!</h2>
-    <h2>I'm Currently a BSIT Student in <strong class="accent-text">PUP Sta. Mesa</strong></h2>
+    <h2 class="hidden">Hi! I'm <strong class="accent-text">Jamie Kim Javier</strong>!</h2>
+    <h2 class="hidden">I'm Currently a BSIT Student in <strong class="accent-text">PUP Sta. Mesa</strong></h2>
     
-    <div class="cta-buttons">
+    <div class="cta-buttons hidden">
       <a href="https://docs.google.com/document/d/18_Y6OjrBx8MuB7AA86QCr4Smv7_53QsuYA9SrKMzo_w/edit?usp=drive_link" class="cta-button primary" target="_blank" rel="noopener noreferrer">View Resume</a>
       <a href="#contact" class="cta-button secondary">Contact Me</a>
     </div>
@@ -44,15 +508,15 @@
 
   <!-- About Me Section -->
   <section id="about">
-    <h2>About Me</h2>
-    <p>I started taking an interest in coding back in junior high school. During the pandemic, I began to tinker with different codes and programs. It wasn't until 12th grade that I finally got my work recognized when I led the development of <strong class="accent-text">PLMARD</strong> as a capstone project.</p>
-    <p>In that project, I applied my skills with <strong class="accent-text">PHP, SQL, CSS, and JavaScript,</strong> working mostly on the back-end side of the project for the database. Currently, I'm learning mobile app development using <strong class="accent-text">Flutter and React Native.</strong></p>
+    <h2 class="hidden">About Me</h2>
+    <p class="hidden">I started taking an interest in coding back in junior high school. During the pandemic, I began to tinker with different codes and programs. It wasn't until 12th grade that I finally got my work recognized when I led the development of <strong class="accent-text">PLMARD</strong> as a capstone project.</p>
+    <p class="hidden">In that project, I applied my skills with <strong class="accent-text">PHP, SQL, CSS, and JavaScript,</strong> working mostly on the back-end side of the project for the database. Currently, I'm learning mobile app development using <strong class="accent-text">Flutter and React Native.</strong></p>
   </section>
 
   <!-- Education Section -->
   <section id="education">
-    <h2>Education</h2>
-    <div class="timeline">
+    <h2 class="hidden">Education</h2>
+    <div class="timeline hidden">
         <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -82,10 +546,10 @@
   
   <!-- Certificates Section -->
   <section id="certificates">
-    <h2>Certificates</h2>
+    <h2 class="hidden">Certificates</h2>
     <div class="certificates-container">
       
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Datamatics ProProctor Training.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Datamatics ProProctor Training</h4>
@@ -93,7 +557,7 @@
             </div>
         </div>
       
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Basic Web Development Workshop (August 17) - Certificate of Participation.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Basic Web Development Workshop</h4>
@@ -101,7 +565,7 @@
             </div>
         </div>
       
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Create Image Captioning Models.png" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Create Image Captioning Models</h4>
@@ -109,7 +573,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Cyber Security Bootcamp.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Cyber Security Bootcamp</h4>
@@ -117,7 +581,7 @@
             </div>
         </div>
 
-              <div class="certificate-card">
+              <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Data Science Bootcamp.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Data Science Bootcamp</h4>
@@ -125,7 +589,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Datamatics August Event.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Datamatics August 2024 Prometric Event</h4>
@@ -133,7 +597,7 @@
             </div>
         </div>
 
-              <div class="certificate-card">
+              <div class="certificate-card hidden">
             <img src="images/Skill Certificates/EF SET Certificate-1.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">EF SET C1 Advanced Certification</h4>
@@ -141,7 +605,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/ENEDA HACKATHON Certificate of Completion.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">ENEDA 2024 Hackathon Certificate of Completion</h4>
@@ -149,7 +613,7 @@
             </div>
         </div>
 
-              <div class="certificate-card">
+              <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Fortinet Training Institute Certificate-1.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Fortinet Introduction to Threat Landscape</h4>
@@ -157,7 +621,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Intro to CIP Certificate.png" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to Critical Infrastructure Protection</h4>
@@ -165,7 +629,7 @@
             </div>
         </div>
 
-          <div class="certificate-card">
+          <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Introduction to Android Application Development Certificate-1.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to Android Application Development</h4>
@@ -173,7 +637,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Introduction to Data Privacy Certificate-1.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to Data Privacy</h4>
@@ -181,7 +645,7 @@
             </div>
         </div>
           
-      <div class="certificate-card">
+      <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Introduction to Data Science.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to Data Science</h4>
@@ -189,7 +653,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Introduction to Generative AI Studio.png" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to Generative AI Studio</h4>
@@ -197,7 +661,7 @@
             </div>
         </div>
 
-            <div class="certificate-card">
+            <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Introduction to Image Generation.png" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to Image Generation</h4>
@@ -205,7 +669,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Introduction to Python.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to Python</h4>
@@ -213,7 +677,7 @@
             </div>
         </div>
 
-            <div class="certificate-card">
+            <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Introduction to Responsible AI.png" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to Responsible AI</h4>
@@ -221,7 +685,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Introduction to SQL.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Introduction to SQL</h4>
@@ -229,7 +693,7 @@
             </div>
         </div>
 
-            <div class="certificate-card">
+            <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Large Language Models.png" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Large Language Models</h4>
@@ -237,7 +701,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Postman Fundamentals Certificate-1.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Postman Fundamentals Certificate</h4>
@@ -245,7 +709,7 @@
             </div>
         </div>
 
-            <div class="certificate-card">
+            <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Securing Data - A Guide to Microsoft DLP.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Securing Data - A Guide to Microsoft DLP</h4>
@@ -253,7 +717,7 @@
             </div>
         </div>
 
-        <div class="certificate-card">
+        <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Understanding Cloud Computing Certificate-1.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Understanding Cloud Computing Certificate-1</h4>
@@ -261,55 +725,54 @@
             </div>
         </div>
 
-            <div class="certificate-card">
+            <div class="certificate-card hidden">
             <img src="images/Skill Certificates/Understanding Data Engineering.jpg" alt="Certificate Image">
             <div class="certificate-info">
                 <h4 class="certificate-title">Understanding Data Engineering</h4>
                 <p class="certificate-issuer">Datacamp</p>
             </div>
         </div>
-      
+		
     </div>
   </section>
 
   <!-- Skills Section -->
   <section id="skills">
-    <h2>Skills</h2>
+    <h2 class="hidden">Skills</h2>
     <div class="skills-container">
-      <div class="skill-box">
+      <div class="skill-box hidden">
         <img class="skill-icon" src="https://img.icons8.com/color/96/adobe-photoshop--v1.png" alt="photoshop icon"/>
         <span class="skill-text">Photoshop</span>
       </div>
-      <div class="skill-box">
+      <div class="skill-box hidden">
         <img class="skill-icon" src="https://img.icons8.com/color/96/figma--v1.png" alt="figma icon"/>        
         <span class="skill-text">Figma</span>
       </div>
-      <div class="skill-box">
+      <div class="skill-box hidden">
         <img class="skill-icon" src="https://img.icons8.com/color/96/javascript--v1.png" alt="javascript icon"/>        
         <span class="skill-text">Javascript</span>
       </div>
-       <div class="skill-box">
+       <div class="skill-box hidden">
         <img class="skill-icon" src="https://img.icons8.com/color/96/php.png" alt="php icon"/>        
         <span class="skill-text">PHP</span>
       </div>
-      <div class="skill-box">
+      <div class="skill-box hidden">
         <img class="skill-icon" src="https://img.icons8.com/fluency/96/html-5.png" alt="html-5 icon"/>
         <span class="skill-text">HTML</span>
       </div>
-      <div class="skill-box">
+      <div class="skill-box hidden">
         <img class="skill-icon" src="https://img.icons8.com/fluency/96/css3.png" alt="css3 icon"/>
         <span class="skill-text">CSS</span>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section: Redesigned with Flexbox for a clean, wrapping grid -->
+  <!-- Projects Section -->
   <section id="projects">
-    <h2>Projects</h2>
+    <h2 class="hidden">Projects</h2>
     <div class="projects-container">
-      <div class="card">
+      <div class="card hidden">
         <div class="card-img-holder">
-          <!-- IMPORTANT: Replace this placeholder with your actual image path -->
           <img src="images/Capture.PNG" alt="PLMARD Project Image">
         </div>
         <h3 class="blog-title">PLMARD: An Academic Research Database</h3>
@@ -320,9 +783,8 @@
         <a href="https://www.plmard.com" class="cta-button card-button" target="_blank" rel="noopener noreferrer">Visit Site</a>
       </div>
 
-      <div class="card">
+      <div class="card hidden">
         <div class="card-img-holder">
-          <!-- IMPORTANT: Replace this placeholder with your actual image path -->
           <img src="images/Capture_TINIG.png" alt="TINIG Project Image">
         </div>
         <h3 class="blog-title">TINIG: A legal aid application for the Philippines</h3>
@@ -333,7 +795,7 @@
         <a href="https://tinig-app.vercel.app/" class="cta-button card-button" target="_blank" rel="noopener noreferrer">Visit Site</a>
       </div>
 
-        <div class="card">
+        <div class="card hidden">
         <div class="card-img-holder">
           <img src="images/Capture_Ecoscape.jpeg" alt="Ecoscape Project Image">
         </div>
@@ -351,9 +813,9 @@
   
   <!-- Contact Section -->
   <section id="contact">
-    <h2>Get In Touch</h2>
-    <p style="text-align: center; max-width: 100%;">Feel free to reach out! I'm always open to new opportunities and collaborations.</p>
-    <footer class="contact-footer">
+    <h2 class="hidden">Get In Touch</h2>
+    <p class="hidden" style="text-align: center; max-width: 100%;">Feel free to reach out! I'm always open to new opportunities and collaborations.</p>
+    <footer class="contact-footer hidden">
       <ul>
         <li><a href="mailto:jamiekimjavier@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
         <li><a href="https://github.com/jamiekimjavier/" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></li>
@@ -363,13 +825,59 @@
     </footer>
   </section>
 </div>  
-  <script src="app.js"></script>
+  
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+ 
+        const animationObserver = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+     
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach(el => animationObserver.observe(el));
+
+
+        
+        const navObserverOptions = {
+            root: null, 
+            threshold: 0.55,
+        };
+        
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    
+                    const currentlyActive = document.querySelector('.sidenav a.active');
+                    if (currentlyActive) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    
+                    const newActiveLink = document.querySelector(`.sidenav a[href="#${id}"]`);
+                    if (newActiveLink) {
+                        newActiveLink.classList.add('active');
+                    }
+                }
+            });
+        }, navObserverOptions);
+
+        const sections = document.querySelectorAll('section[id]');
+        sections.forEach(section => {
+            navObserver.observe(section);
+        });
+    });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
 
